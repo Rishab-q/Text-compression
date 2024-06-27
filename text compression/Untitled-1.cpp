@@ -25,20 +25,16 @@ public:
         }
         return result;
     }
-
     size_t size() const {
         return bits.size();
     }
-
     const std::vector<bool>& getBits() const {
         return bits;
     }
-
     void clear() {
         bits.clear();
     }
 };
-
 // Huffman Tree Node Structure
 struct Node {
     char ch;
@@ -105,7 +101,6 @@ std::shared_ptr<Node> buildHuffmanTree(const std::string& text, std::unordered_m
     return root;
 }
 
-// Encode the input text 
 BitString encode(const std::string& text, const std::unordered_map<char, BitString>& huffmanCodes) {
     BitString encoded;
     for (char ch : text) {
@@ -114,7 +109,6 @@ BitString encode(const std::string& text, const std::unordered_map<char, BitStri
     return encoded;
 }
 
-// Decode the encoded bit string 
 std::string decode(const BitString& encoded, const std::shared_ptr<Node>& root) {
     std::string decoded;
     std::shared_ptr<Node> current = root;
